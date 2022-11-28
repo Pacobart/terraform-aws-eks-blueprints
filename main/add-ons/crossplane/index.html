@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.3.2">
     
     
       
@@ -450,6 +450,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../argo-workflows/" class="md-nav__link">
+        Argo Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../argocd/" class="md-nav__link">
         ArgoCD
       </a>
@@ -578,6 +592,20 @@
     <li class="md-nav__item">
       <a href="../cert-manager-csi-driver/" class="md-nav__link">
         cert-manager-csi-driver
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cert-manager-istio-csr/" class="md-nav__link">
+        cert-manager-istio-csr
       </a>
     </li>
   
@@ -821,6 +849,20 @@
     <li class="md-nav__item">
       <a href="../grafana/" class="md-nav__link">
         Grafana
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kafka/" class="md-nav__link">
+        Strimzi Operator for Apache Kafka
       </a>
     </li>
   
@@ -1425,8 +1467,8 @@
     version                   = &quot;1.6.2&quot;
     namespace                 = &quot;crossplane-system&quot;
     values = [templatefile(&quot;${path.module}/values.yaml&quot;, {
-         service_account_name = var.service_account_name,
-         operating_system     = &quot;linux&quot;
+         service_account  = var.service_account,
+         operating_system = &quot;linux&quot;
     })]
   }
 
@@ -1437,6 +1479,7 @@
 <ul>
 <li><a href="https://github.com/crossplane/provider-aws">AWS Provider</a></li>
 <li><a href="https://github.com/crossplane-contrib/provider-jet-aws">Terrajet AWS Provider</a></li>
+<li><a href="https://github.com/crossplane-contrib/provider-kubernetes">Kubernetes Provider</a></li>
 </ul>
 <p><em>NOTE: Crossplane requires Admin like permissions to create and update resources similar to Terraform deploy role.
 This example config uses AdministratorAccess, but you should select a policy with the minimum permissions required to provision your resources.</em></p>
@@ -1454,6 +1497,14 @@ crossplane_jet_aws_provider = {
   enable                   = true
   provider_aws_version     = &quot;v0.4.1&quot;  # Get the latest version from  https://github.com/crossplane-contrib/provider-jet-aws
   additional_irsa_policies = [&quot;arn:aws:iam::aws:policy/AdministratorAccess&quot;]
+}
+</code></pre></div></p>
+<p><em>NOTE: Crossplane requires cluster-admin permissions to create and update Kubernetes resources.</em></p>
+<p>Config to deploy <a href="https://github.com/crossplane-contrib/provider-kubernetes">Kubernetes provider</a>
+<div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; kubernetes-provider
+crossplane_kubernetes_provider = {
+  enable                   = true
+  provider_kubernetes_version     = &quot;v0.4.1&quot;  # Get the latest version from  https://github.com/crossplane-contrib/provider-jet-aws
 }
 </code></pre></div></p>
 <p>Checkout the full <a href="https://github.com/aws-ia/terraform-aws-eks-blueprints/blob/main/examples/crossplane">example</a> to deploy Crossplane with <code>kubernetes-addons</code> module</p>

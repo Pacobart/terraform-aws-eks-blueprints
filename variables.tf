@@ -255,8 +255,8 @@ variable "iam_role_permissions_boundary" {
 
 variable "iam_role_additional_policies" {
   description = "Additional policies to be added to the IAM role"
-  type        = list(string)
-  default     = []
+  type        = map(string)
+  default     = {}
 }
 
 variable "enable_irsa" {

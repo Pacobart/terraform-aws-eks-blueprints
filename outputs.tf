@@ -11,15 +11,15 @@ output "eks_cluster_id" {
   value       = module.aws_eks.cluster_id
 }
 
-output "eks_cluster_certificate_authority_data" {
-  description = "Base64 encoded certificate data required to communicate with the cluster"
-  value       = module.aws_eks.cluster_certificate_authority_data
-}
+#output "eks_cluster_certificate_authority_data" {
+#  description = "Base64 encoded certificate data required to communicate with the cluster"
+#  value       = module.aws_eks.cluster_certificate_authority_data
+#}
 
-output "eks_cluster_endpoint" {
-  description = "Endpoint for your Kubernetes API server"
-  value       = module.aws_eks.cluster_endpoint
-}
+#output "eks_cluster_endpoint" {
+#  description = "Endpoint for your Kubernetes API server"
+#  value       = module.aws_eks.cluster_endpoint
+#}
 
 output "eks_oidc_issuer_url" {
   description = "The URL on the EKS cluster OIDC Issuer"

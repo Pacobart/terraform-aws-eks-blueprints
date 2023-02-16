@@ -7,13 +7,13 @@ data "aws_eks_cluster" "cluster" {
   name  = module.aws_eks.cluster_id
 }
 
-#data "http" "eks_cluster_readiness" {
-#  count = var.create_eks ? 1 : 0
-#
-#  url            = join("/", [data.aws_eks_cluster.cluster[0].endpoint, "healthz"])
-#  ca_certificate = base64decode(data.aws_eks_cluster.cluster[0].certificate_authority[0].data)
-#  timeout        = var.eks_readiness_timeout
-#}
+data "http" "eks_cluster_readiness" {
+  count = var.create_eks ? 1 : 0
+
+  url            = join("/", [data.aws_eks_cluster.cluster[0].endpoint, "healthz"])
+  ca_certificate = base64decode(data.aws_eks_cluster.cluster[0].certificate_authority[0].data)
+  timeout        = var.eks_readiness_timeout
+}
 
 data "aws_iam_session_context" "current" {
   arn = data.aws_caller_identity.current.arn

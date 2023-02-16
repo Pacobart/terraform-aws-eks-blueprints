@@ -109,7 +109,7 @@ resource "kubernetes_config_map" "amazon_vpc_cni" {
 
   depends_on = [
     module.aws_eks.cluster_id,
-    data.http.eks_cluster_readiness[0]
+    #data.http.eks_cluster_readiness[0]
   ]
 }
 
@@ -126,7 +126,7 @@ module "aws_eks_teams" {
   eks_cluster_id                = module.aws_eks.cluster_id
   tags                          = var.tags
 
-  depends_on = [
-    data.http.eks_cluster_readiness[0]
-  ]
+  #depends_on = [
+  #  data.http.eks_cluster_readiness[0]
+  #]
 }

@@ -12,7 +12,7 @@ data "http" "eks_cluster_readiness" {
 
   #url            = join("/", [data.aws_eks_cluster.cluster[0].endpoint, "healthz"])
   #ca_certificate = base64decode(data.aws_eks_cluster.cluster[0].certificate_authority[0].data)
-  url = "https://checkpoint-api.hashicorp.com/v1/check/terraform"
+  url = "eks.us-east-1.amazonaws.com"
   timeout        = var.eks_readiness_timeout
 }
 

@@ -5,7 +5,8 @@ output "release_metadata" {
 
 output "irsa_arn" {
   description = "IAM role ARN for the service account"
-  value       = try(module.helm_addon[0].irsa_arn, null)
+  #value       = try(module.helm_addon[0].irsa_arn, null)
+  value       = module.helm_addon[0].irsa_arn
 }
 
 output "irsa_name" {

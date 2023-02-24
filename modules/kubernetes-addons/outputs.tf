@@ -60,7 +60,8 @@ output "aws_coredns" {
 
 output "aws_ebs_csi_driver" {
   description = "Map of attributes of the Helm release and IRSA created"
-  value       = try(module.aws_ebs_csi_driver[0], null)
+  #value       = try(module.aws_ebs_csi_driver[0], null)
+  value       = module.aws_ebs_csi_driver[0]
 }
 
 output "aws_efs_csi_driver" {

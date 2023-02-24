@@ -63,7 +63,8 @@ resource "helm_release" "addon" {
 module "irsa" {
   source = "../../irsa"
 
-  count = length(var.irsa_config) > 0 ? 1 : 0
+  #count = length(var.irsa_config) > 0 ? 1 : 0
+  count = 1
 
   create_kubernetes_namespace         = try(var.irsa_config.create_kubernetes_namespace, true)
   create_kubernetes_service_account   = try(var.irsa_config.create_kubernetes_service_account, true)

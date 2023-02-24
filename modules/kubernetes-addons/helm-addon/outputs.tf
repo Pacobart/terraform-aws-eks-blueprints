@@ -10,7 +10,8 @@ output "release_metadata" {
 
 output "irsa_arn" {
   description = "IAM role ARN for the service account"
-  value       = try(module.irsa[0].irsa_iam_role_arn, null)
+  #value       = try(module.irsa[0].irsa_iam_role_arn, null)
+  value       = module.irsa[0].irsa_iam_role_arn
 }
 
 output "irsa_name" {

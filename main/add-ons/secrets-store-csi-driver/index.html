@@ -253,37 +253,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../node-groups/" class="md-nav__link">
-        Node Groups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_4">
           IAM
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="IAM" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           IAM
         </label>
@@ -335,18 +320,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_6">
           Modules
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Modules" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Modules
         </label>
@@ -385,18 +370,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_8">
+        <label class="md-nav__link" for="__nav_7">
           Add-ons
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Add-ons" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Add-ons
         </label>
@@ -704,6 +689,20 @@
     <li class="md-nav__item">
       <a href="../crossplane/" class="md-nav__link">
         Crossplane
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crowdstrike-falcon/" class="md-nav__link">
+        CrowdStrike Falcon
       </a>
     </li>
   
@@ -1258,18 +1257,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9">
+        <label class="md-nav__link" for="__nav_8">
           Advanced
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Advanced" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Advanced
         </label>
@@ -1438,6 +1437,25 @@
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>secrets-store-csi-driver can be deployed by enabling the add-ons via the following.</p>
 <div class="highlight"><pre><span></span><code>enable_secrets_store_csi_driver = true
+</code></pre></div>
+<p>You can optionally customize the Helm chart that deploys <code>secrets_store_csi_driver</code> via the following configuration.</p>
+<div class="highlight"><pre><span></span><code>secrets_store_csi_driver_helm_config = {
+    name       = &quot;secrets-store-csi-driver&quot;
+    chart      = &quot;secrets-store-csi-driver&quot;
+    repository = &quot;https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts&quot;
+    version    = &quot;1.2.4&quot;
+    namespace  = &quot;secrets-store-csi-driver&quot;
+    set_values = [
+      {
+        name  = &quot;syncSecret.enabled&quot;
+        value = &quot;false&quot;
+      },
+      {
+        name  = &quot;enableSecretRotation&quot;
+        value = &quot;false&quot;
+      }
+    ]
+}
 </code></pre></div>
 
               

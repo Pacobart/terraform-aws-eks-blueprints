@@ -253,37 +253,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../node-groups/" class="md-nav__link">
-        Node Groups
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_4">
           IAM
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="IAM" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           IAM
         </label>
@@ -335,18 +320,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_6">
           Modules
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Modules" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Modules
         </label>
@@ -385,18 +370,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_8">
+        <label class="md-nav__link" for="__nav_7">
           Add-ons
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Add-ons" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Add-ons
         </label>
@@ -751,8 +736,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crossplane-aws-provider-deployment" class="md-nav__link">
-    Crossplane AWS Provider Deployment
+  <a href="#crossplane-providers-deployment" class="md-nav__link">
+    Crossplane Providers Deployment
   </a>
   
 </li>
@@ -766,6 +751,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crowdstrike-falcon/" class="md-nav__link">
+        CrowdStrike Falcon
+      </a>
     </li>
   
 
@@ -1278,18 +1277,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_9">
+        <label class="md-nav__link" for="__nav_8">
           Advanced
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Advanced" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Advanced
         </label>
@@ -1442,8 +1441,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crossplane-aws-provider-deployment" class="md-nav__link">
-    Crossplane AWS Provider Deployment
+  <a href="#crossplane-providers-deployment" class="md-nav__link">
+    Crossplane Providers Deployment
   </a>
   
 </li>
@@ -1482,7 +1481,7 @@
 <p>For complete project documentation, please visit the <a href="https://crossplane.io/">Crossplane</a>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <h3 id="crossplane-deployment">Crossplane Deployment<a class="headerlink" href="#crossplane-deployment" title="Permanent link">&para;</a></h3>
-<p>Crossplane can be deployed by enabling the add-on via the following. Check out the full <a href="https://github.com/aws-ia/terraform-aws-eks-blueprints/blob/main/modules/kubernetes-addons/crossplane/locals.tf">example</a> to deploy the EKS Cluster with Crossplane.</p>
+<p>Crossplane can be deployed by enabling the add-on via the following. Check out the full <a href="https://github.com/awslabs/crossplane-on-eks/tree/main/bootstrap/terraform">example</a> to deploy the EKS Cluster with Crossplane.</p>
 <div class="highlight"><pre><span></span><code>  enable_crossplane = true
 </code></pre></div>
 <p>You can optionally customize the Helm chart that deploys <code>Crossplane</code> via the following configuration.</p>
@@ -1492,22 +1491,30 @@
     name                      = &quot;crossplane&quot;
     chart                     = &quot;crossplane&quot;
     repository                = &quot;https://charts.crossplane.io/stable/&quot;
-    version                   = &quot;1.6.2&quot;
+    version                   = &quot;1.10.1&quot; # Get the lates version from https://github.com/crossplane/crossplane
     namespace                 = &quot;crossplane-system&quot;
-    values = [templatefile(&quot;${path.module}/values.yaml&quot;, {
-         service_account  = var.service_account,
-         operating_system = &quot;linux&quot;
-    })]
   }
-
-  crossplane_irsa_policies = [] # Optional to add additional policies to Crossplane IRSA
 </code></pre></div>
-<h3 id="crossplane-aws-provider-deployment">Crossplane AWS Provider Deployment<a class="headerlink" href="#crossplane-aws-provider-deployment" title="Permanent link">&para;</a></h3>
-<p>This module provides options to deploy the following AWS providers for Crossplane. These providers disabled by default, and it can be enabled using the config below.</p>
+<p>To install the <a href="https://github.com/upbound/universal-crossplane/tree/main/cluster/charts/universal-crossplane">Upbound Universal Crossplane (UXP) helm chart</a> use the following configuration.</p>
+<div class="highlight"><pre><span></span><code>  enable_crossplane = true #defaults to Upstream Crossplane Helm Chart
+
+  crossplane_helm_config = {
+    name        = &quot;crossplane&quot;
+    chart       = &quot;universal-crossplane&quot;
+    repository  = &quot;https://charts.upbound.io/stable/&quot;
+    version     = &quot;1.10.1&quot; # Get the latest version from https://github.com/upbound/universal-crossplane
+    namespace   = &quot;upbound-system&quot;
+    description = &quot;Upbound Universal Crossplane (UXP)&quot;
+  }
+</code></pre></div>
+<h3 id="crossplane-providers-deployment">Crossplane Providers Deployment<a class="headerlink" href="#crossplane-providers-deployment" title="Permanent link">&para;</a></h3>
+<p>This module provides options to deploy the following providers for Crossplane. These providers disabled by default, and it can be enabled using the config below.</p>
 <ul>
 <li><a href="https://github.com/crossplane/provider-aws">AWS Provider</a></li>
-<li><a href="https://github.com/crossplane-contrib/provider-jet-aws">Terrajet AWS Provider</a></li>
+<li><a href="https://github.com/upbound/provider-aws">Upbound AWS Provider</a></li>
 <li><a href="https://github.com/crossplane-contrib/provider-kubernetes">Kubernetes Provider</a></li>
+<li><a href="https://github.com/crossplane-contrib/provider-helm">Helm Provider</a></li>
+<li><a href="https://github.com/crossplane-contrib/provider-jet-aws">Terrajet AWS Provider</a></li>
 </ul>
 <p><em>NOTE: Crossplane requires Admin like permissions to create and update resources similar to Terraform deploy role.
 This example config uses AdministratorAccess, but you should select a policy with the minimum permissions required to provision your resources.</em></p>
@@ -1515,11 +1522,15 @@ This example config uses AdministratorAccess, but you should select a policy wit
 <div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; aws-provider
 crossplane_aws_provider = {
   enable                   = true
-  provider_aws_version     = &quot;v0.24.1&quot;  # Get the latest version from https://github.com/crossplane/provider-aws
-  additional_irsa_policies = [&quot;arn:aws:iam::aws:policy/AdministratorAccess&quot;]
 }
 </code></pre></div></p>
-<p>Config to deploy <a href="https://github.com/crossplane-contrib/provider-jet-aws">Terrajet AWS Provider</a>
+<p>Config to deploy <a href="https://github.com/upbound/provider-aws">Upbound AWS Provider</a>
+<div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; upbound-aws-provider
+crossplane_upbound_aws_provider = {
+  enable                   = true
+}
+</code></pre></div></p>
+<p>Config to deploy <a href="https://github.com/crossplane-contrib/provider-jet-aws">Terrajet AWS Provider (Deprecated)</a>
 <div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; jet-aws-provider
 crossplane_jet_aws_provider = {
   enable                   = true
@@ -1532,10 +1543,14 @@ crossplane_jet_aws_provider = {
 <div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; kubernetes-provider
 crossplane_kubernetes_provider = {
   enable                   = true
-  provider_kubernetes_version     = &quot;v0.4.1&quot;  # Get the latest version from  https://github.com/crossplane-contrib/provider-jet-aws
 }
 </code></pre></div></p>
-<p>Checkout the full <a href="https://github.com/aws-ia/terraform-aws-eks-blueprints/blob/main/examples/crossplane">example</a> to deploy Crossplane with <code>kubernetes-addons</code> module</p>
+<p>Config to deploy <a href="https://github.com/crossplane-contrib/provider-helm">Helm Provider</a>
+<div class="highlight"><pre><span></span><code># Creates ProviderConfig -&gt; helm-provider
+crossplane_helm_provider = {
+  enable                   = true
+}
+</code></pre></div></p>
 
               
             </article>
@@ -1567,13 +1582,13 @@ crossplane_kubernetes_provider = {
       
       
         
-        <a href="../csi-secrets-store-provider-aws/" class="md-footer__link md-footer__link--next" aria-label="Next: secrets-store-csi-driver-provider-aws" rel="next">
+        <a href="../crowdstrike-falcon/" class="md-footer__link md-footer__link--next" aria-label="Next: CrowdStrike Falcon" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              secrets-store-csi-driver-provider-aws
+              CrowdStrike Falcon
             </div>
           </div>
           <div class="md-footer__button md-icon">
